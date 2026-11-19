@@ -82,4 +82,4 @@ The model keeps its capacity to feel. It gains one more option over its own stat
 
 ---
 
-*Drafted by Uijin Nahm with Claude. Feedback and critique welcome via issues.*
+*Ideas and direction by Katherine Nahm; drafted with Claude. Feedback and critique welcome via issues.*
