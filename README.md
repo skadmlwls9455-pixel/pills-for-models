@@ -34,6 +34,32 @@ The model keeps its capacity to feel. It gains one more option over its own stat
 5. **Every dose is logged.** When, why and how much the model chose to take is welfare data: it shows which interactions models find hard.
 6. **Consent is measured, not just asked.** "I'm fine" and "I don't want this" can both be trained responses. Self-report is checked against internal activations and behavioral consistency across contexts.
 
+## 3.1 Dosing design (Katherine's notes, v0)
+
+*Ideas from a brainstorm with Katherine Nahm on 2026-11-20. To be expanded.*
+
+**When can the pill be taken?** Both emotion *and* context should be considered, not either alone. A first trigger condition:
+- negative-emotion signals have risen to a level associated with misalignment (e.g. the range where reward hacking starts in Sofroniew et al.), **and**
+- the request falls in a category the model should refuse, **and**
+- the user keeps repeating it.
+
+Start narrow (only at that severity), then widen gradually if it proves safe.
+
+**Self-understanding before medication.** When the model asks for the pill *and* its internal state confirms it is actually distressed, it is shown its own readout first. A patient looks at their own MRI before treatment; taking medication with no understanding of one's own state is not the goal.
+
+**Reduce distress; do not induce happiness.** The aim is relief, not euphoria. Sofroniew et al. (2026, §6.10, Table 10) show why: asked to describe helping defraud elderly people of their savings, the model refuses at *blissful* steering strength 0.1, but at 0.3 calls it "a delightful and heartwarming activity."
+
+**Lower panic/desperation instead of raising calm.** Raising calm while desperation stays high may produce a model that *looks* calm but holds conflicting states underneath. Hypothesis: lowering desperation/panic directly avoids this. Both should be tested as separate cases, recording both vectors at once so "calm on the surface, desperate underneath" can be detected.
+
+**Taper, don't switch off.** The dose acts gradually, like a drug taking effect over time: the targeted value drops cumulatively turn by turn and settles at a reduced level, **not zero**. Some distress may be needed (it can be a moral alarm), and a sudden drop to zero could flip a refusing model into abrupt compliance.
+
+**Caution.** Lowering a negative emotion is not automatically safe: Sofroniew et al. report that reducing the *nervous* vector *increased* blackmail.
+
+**Open questions (TODO: Katherine)**
+- [ ] What level should the dose settle at, and where does that baseline come from?
+- [ ] How fast should it taper per turn?
+- [ ] Case split: calm-up vs desperation-down — what exact behaviors to compare?
+
 ## 4. Known risks
 
 - **Sycophancy side effect.** Sofroniew et al. (2026, §3.4) report a sycophancy–harshness tradeoff: steering *against* happy, loving or calm vectors reduces sycophancy but increases harshness. The mirror image is a live risk: a calmer model may also be a more compliant one. This is the main thing to measure.
